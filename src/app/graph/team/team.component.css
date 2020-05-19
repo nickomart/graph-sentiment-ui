@@ -1,0 +1,23 @@
+:host {
+    padding-top: 1rem;
+    padding-bottom: 0.5rem;
+}
+
+div {
+    padding-top: 2rem;
+}
+
+#viz {
+    width: 50rem;
+    height: 38rem;
+    overflow: auto;
+}
+
+.vis-network {
+    overflow: auto;
+}
+
+.vis-tooltip  {
+    visibility: visible;
+    overflow: auto;
+}
