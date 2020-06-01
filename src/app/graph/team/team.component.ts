@@ -25,6 +25,10 @@ export class TeamComponent implements OnInit {
         Person: {
             caption: 'name'
         },
+        Entity: {
+          caption: 'name',
+          shape: 'square'
+      },
       },
       relationships: {
         SENTIMENT_TO: {
@@ -32,11 +36,16 @@ export class TeamComponent implements OnInit {
             caption: false,
             color: '#2c6d2e',
             colorFn: (rel: any) => rel.properties.quantifiedScore > 0 ? GREEN : RED,
-        }
+        },
+        BELONG_TO: {
+          thickness: 'null',
+          caption: true,
+          color: '#000000',
+      }
       },
       arrows: true,
       console_debug: true,
-      initial_cypher: 'MATCH p=()-[r:SENTIMENT_TO]->() RETURN p LIMIT 25',
+      initial_cypher: 'Match a=()-[r:SENTIMENT_TO]->(),b=()-[r2:BELONG_TO]->() Return a,b',
       customEdgesScalingFn: (min: number, max: number, total: number, value: number) => {
         const absVal = Math.abs(value);
         return (absVal < 0) ? 0 : (absVal > 1 ? 1 : absVal);
